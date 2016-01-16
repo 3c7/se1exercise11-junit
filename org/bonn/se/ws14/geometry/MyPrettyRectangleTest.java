@@ -139,7 +139,9 @@ public class MyPrettyRectangleTest extends TestCase {
     public void testGetBoundingBox() {
 
         MyPrettyRectangle[] rect = {right, middle, somewhere};
+        MyPrettyRectangle[] rectAll = {right, middle, somewhere, left};
         MyPrettyRectangle boundingBox = BoundingBoxFactory.createBB(rect);
+        MyPrettyRectangle boundingBoxAll = BoundingBoxFactory.createBB(rectAll);
 
         // Hier sollten sie einen Test einfuegen, der zunaechst mit der Klasse BoundingBoxFactory auf
         // Basis des o.g. Array die Bounding Box berechnet.
@@ -149,11 +151,8 @@ public class MyPrettyRectangleTest extends TestCase {
         assertTrue(boundingBox.contains(middle));
         assertTrue(boundingBox.contains(somewhere));
 
-        // This should be wrong, bc the Bounding Box normally would be (0.0, 0.0, 6.0, 4.0) - Da fuq?
         assertEquals(boundingBox, new MyPrettyRectangle(1.0, 0.0, 6.0, 4.0));
-
-        // This is the correct solution, but not equal. 
-        assertEquals(boundingBox, new MyPrettyRectangle(0.0, 0.0, 6.0, 4.0));
+        assertEquals(boundingBoxAll, new MyPrettyRectangle(0.0, 0.0, 6.0, 4.0));
 
 
         // Testen sie zudem, ob ueberhaupt ein Objekt zurueckgegeben wird, d.h. der Rueckgabe-Wert ungleich NULL ist
