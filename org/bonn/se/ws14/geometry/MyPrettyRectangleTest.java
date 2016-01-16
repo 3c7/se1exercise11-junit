@@ -148,7 +148,12 @@ public class MyPrettyRectangleTest extends TestCase {
         assertTrue(boundingBox.contains(right));
         assertTrue(boundingBox.contains(middle));
         assertTrue(boundingBox.contains(somewhere));
+
+        // This should be wrong, bc the Bounding Box normally would be (0.0, 0.0, 6.0, 4.0) - Da fuq?
         assertEquals(boundingBox, new MyPrettyRectangle(1.0, 0.0, 6.0, 4.0));
+
+        // This is the correct solution, but not equal. 
+        assertEquals(boundingBox, new MyPrettyRectangle(0.0, 0.0, 6.0, 4.0));
 
 
         // Testen sie zudem, ob ueberhaupt ein Objekt zurueckgegeben wird, d.h. der Rueckgabe-Wert ungleich NULL ist
